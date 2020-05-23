@@ -40,7 +40,7 @@ class TestSpell:
             spl = action.Spell()
 
     def test_can_create_with_all_parameters(self):
-        summary = "summon Grokus"
+        summary = "cast a fireball"
         spl = action.Spell(
             summary=summary
         )
