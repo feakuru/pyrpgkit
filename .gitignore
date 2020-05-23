@@ -38,3 +38,4 @@ cover/
 *.mo
 *.pot
 docs/_build/
+.vscode/
