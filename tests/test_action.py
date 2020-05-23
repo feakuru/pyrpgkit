@@ -32,3 +32,17 @@ class TestAbility:
         )
         assert abl.action_type == "ability"
         assert abl.summary == summary
+
+
+class TestSpell:
+    def test_can_not_create_without_parameters(self):
+        with pytest.raises(TypeError):
+            spl = action.Spell()
+
+    def test_can_create_with_all_parameters(self):
+        summary = "summon Grokus"
+        spl = action.Spell(
+            summary=summary
+        )
+        assert spl.action_type == "ability"
+        assert spl.summary == "[SPELL] " + summary
