@@ -15,11 +15,22 @@ class Action:
 
 class Ability(Action):
     """An ability that a character can use."""
+
     def __init__(self, summary):
+        """
+        Args:
+            summary: A short human-readable description of the ability.
+        """
         super().__init__("ability", summary)
 
 
 class Spell(Ability):
     """A spell that a Character can cast."""
-    pass
+
+    def __init__(self, summary):
+        """
+        Args:
+            summary: A short human-readable description of the spell.
+        """
+        super().__init__("[SPELL] {}".format(summary))
 
