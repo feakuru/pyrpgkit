@@ -30,5 +30,5 @@ class TestAbility:
         abl = action.Ability(
             summary=summary
         )
-        assert act.action_type == "ability"
-        assert act.summary == summary
+        assert abl.action_type == "ability"
+        assert abl.summary == summary
