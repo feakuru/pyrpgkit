@@ -30,7 +30,7 @@ class TestLine:
         line = dialog.Line(text=text, author=char)
         assert line.text == text
         assert line.author == char
-        assert str(line) == "{}: \"{}\"".format(char, text)
+        assert str(line) == "{}: \"{}\"".format(char.name, text)
 
 
 class TestDialogHistory:
