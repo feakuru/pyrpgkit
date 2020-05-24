@@ -8,6 +8,9 @@ class Character:
     def __init__(self):
         raise NotImplemented
 
+    def __str__(self):
+        return self.name
+
 
 class Player:
     """A simple class representing a Player."""
@@ -37,6 +40,9 @@ class Creature(NonPlayerCharacter):
     def __init__(self, species, name=""):
         super().__init__(name)
         self.species = species
+    
+    def __str__(self):
+        return self.name if self.name else self.species
 
 
 class Trader(NonPlayerCharacter):
