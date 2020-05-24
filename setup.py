@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyrpgkit",
-    version="0.0.1",
+    version="0.0.2",
     author="feakuru",
     author_email="feanarokurufinve@gmail.com",
     description="A library for writing RPGs in Python",
