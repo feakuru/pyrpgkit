@@ -26,6 +26,6 @@ jobs:
     - name: Lint code
       run: |
         pylint *.py
-    - name: Test with pytest
+    - name: Test with pytest and generate coverage report
       run: |
-        pytest
+        CODECOV_TOKEN="e44052ca-4b2f-4bfb-aa1e-9f9f900b34be" pytest --cov-report=xml --cov=pyrpgkit

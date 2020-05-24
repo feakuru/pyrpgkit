@@ -14,5 +14,6 @@ setuptools = "*"
 wheel = "*"
 twine = "*"
 pytest = "*"
+pytest-cov = "*"
 
 [packages]
