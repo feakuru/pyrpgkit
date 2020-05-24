@@ -19,6 +19,7 @@ class TestPlayer:
     def test_can_create_with_name(self):
         player = actor.Player(name="Johnny")
         assert player.name == "Johnny"
+        assert str(player) == player.name
 
 
 class TestPlayerCharacter:
@@ -31,6 +32,11 @@ class TestPlayerCharacter:
         char = actor.PlayerCharacter(name="Uther", player=player)
         assert char.name == "Uther"
         assert char.player.name == "John"
+        assert str(char) == "Uther <John>"
+
+    def test_can_not_create_with_non_player_as_player(self):
+        with pytest.raises(TypeError):
+            char = actor.PlayerCharacter(name="Uther", player="John")
 
 
 class TestNonPlayerCharacter:
@@ -41,6 +47,7 @@ class TestNonPlayerCharacter:
     def test_can_create_with_name(self):
         npc = actor.NonPlayerCharacter(name="Gareth")
         assert npc.name == "Gareth"
+        assert str(npc) == npc.name
 
 
 class TestCreature:
@@ -52,11 +59,13 @@ class TestCreature:
         pig = actor.Creature(name="Bobby", species="pig")
         assert pig.name == "Bobby"
         assert pig.species == "pig"
+        assert str(pig) == pig.name
     
     def test_can_create_with_just_species(self):
         unnamed_goblin = actor.Creature(species="goblin")
         assert unnamed_goblin.name == ""
         assert unnamed_goblin.species == "goblin"
+        assert str(unnamed_goblin) == unnamed_goblin.species
 
 
 class TestTrader:
@@ -67,6 +76,7 @@ class TestTrader:
     def test_can_create_with_name(self):
         trader = actor.Trader(name="Sidorovich")
         assert trader.name == "Sidorovich"
+        assert str(trader) == "Sidorovich"
 
 
 class TestGroup:
@@ -97,10 +107,11 @@ class TestGroup:
         assert pig in group.characters
         assert unnamed_goblin in group.characters
         assert trader in group.characters
+        assert str(group) == "NPCs"
 
     def test_can_not_create_from_iterable_with_non_chars(self):
         pig = actor.Creature(name="Bobby", species="pig")
-        with pytest.raises(actor.NotACharacterInGroupException):
+        with pytest.raises(TypeError):
             group = actor.Group(
                 title="NPCs",
                 characters=(
