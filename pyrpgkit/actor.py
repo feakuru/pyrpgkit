@@ -15,22 +15,30 @@ class Character:
 class Player:
     """A simple class representing a Player."""
 
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
+    
+    def __str__(self):
+        return self.name
 
 
 class PlayerCharacter(Character):
     """A character played by a player."""
 
-    def __init__(self, name, player):
+    def __init__(self, name: str, player: Player):
+        if not isinstance(player, Player):
+            raise TypeError("player must be of type Player")
         self.name = name
         self.player = player
+    
+    def __str__(self):
+        return "{} <{}>".format(self.name, self.player.name)
 
 
 class NonPlayerCharacter(Character):
     """A character not played by a player."""
 
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
 
 
@@ -52,14 +60,6 @@ class Trader(NonPlayerCharacter):
         super().__init__(name=name)
 
 
-class NotACharacterInGroupException(Exception):
-    def __init__(self):
-        super().__init__(
-            "Only subclasses of Character are allowed to be part of a Group."
-        )
-
-
-
 class Group:
     """A group of Characters."""
     
@@ -67,11 +67,13 @@ class Group:
         self.title = title
         self._group = []
         for char in characters:
-            if isinstance(char, Character):
-                self._group.append(char)
-            else:
-                raise NotACharacterInGroupException
+            if not isinstance(char, Character):
+                raise TypeError("all characters must be instances of Character")
+            self._group.append(char)
     
     @property
     def characters(self):
         yield from self._group
+
+    def __str__(self):
+        return self.title
