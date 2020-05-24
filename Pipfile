@@ -15,5 +15,6 @@ wheel = "*"
 twine = "*"
 pytest = "*"
 pytest-cov = "*"
+codecov = "*"
 
 [packages]

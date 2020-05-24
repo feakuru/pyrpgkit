@@ -28,4 +28,5 @@ jobs:
         pylint *.py
     - name: Test with pytest and generate coverage report
       run: |
-        CODECOV_TOKEN="e44052ca-4b2f-4bfb-aa1e-9f9f900b34be" pytest --cov-report=xml --cov=pyrpgkit
+        pytest --cov-report=xml --cov=pyrpgkit
+        CODECOV_TOKEN="e44052ca-4b2f-4bfb-aa1e-9f9f900b34be" codecov
