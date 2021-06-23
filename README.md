@@ -1,4 +1,4 @@
-# PyRPG
+# PyRPG [WIP]
 
 [![codecov](https://codecov.io/gh/feakuru/pyrpgkit/branch/master/graph/badge.svg)](https://codecov.io/gh/feakuru/pyrpgkit/)
 
