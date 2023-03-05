@@ -16,5 +16,9 @@ twine = "*"
 pytest = "*"
 pytest-cov = "*"
 codecov = "*"
+wrapt = "*"
+isort = "*"
+dill = "*"
+astroid = "*"
 
 [packages]
